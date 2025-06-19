@@ -58,4 +58,8 @@ public class Movie  {
     public void setRuntime(int runtime) {
         this.runtime = runtime;
     }
+
+    public void setId(int movieId) {
+        this.id = movieId;
+    }
 }

@@ -16,7 +16,7 @@ public class AlbumController {
     private AlbumRepository albumRepository;
 
     @GetMapping("")
-    public List<Album> renderAlbumsHomePage() {
+    public List<Album> getAllAlbums() {
         return albumRepository.findAll();
     }
 
@@ -31,17 +31,13 @@ public class AlbumController {
     }
 
     @PutMapping("/{id}")
-    public void updateAlbum(@PathVariable(value="id") int albumId, @RequestBody Album album) {
-        albumRepository.save(album);
+    public Album updateAlbum(@PathVariable(value="id") int albumId, @RequestBody Album album) {
+        album.setId(albumId);
+        return albumRepository.save(album);
     }
-
 
     @DeleteMapping("/{id}")
     public void deleteAlbum(@PathVariable(value="id") int id) {
         albumRepository.findById(id).ifPresent(currAlbum -> albumRepository.deleteById(id));
     }
-
-
-
-
 }

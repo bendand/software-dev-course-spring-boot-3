@@ -58,4 +58,8 @@ public class Book {
     public void setPages(int pages) {
         this.pages = pages;
     }
+
+    public void setId(int bookId) {
+        this.id = bookId;
+    }
 }

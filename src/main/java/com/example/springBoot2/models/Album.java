@@ -66,4 +66,7 @@ public class Album {
         return name + " - " + artist + " (" + year + ")";
     }
 
+    public void setId(int albumId) {
+        this.id = albumId;
+    }
 }
