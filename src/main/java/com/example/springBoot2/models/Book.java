@@ -11,16 +11,21 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     private String name;
     private int year;
     private String author;
     private int pages;
 
-    public Book() {
+    public Book(String name, String author, int year, int pages) {
+        this.name = name;
+        this.year = year;
+        this.author = author;
+        this.pages = pages;
     }
 
-    public Book(String name, String author, int year, int pages) {
+    public Book(int id, String name, String author, int year, int
+            pages) {
+        this.id = id;
         this.name = name;
         this.year = year;
         this.author = author;
@@ -59,7 +64,11 @@ public class Book {
         this.pages = pages;
     }
 
-    public void setId(int bookId) {
-        this.id = bookId;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
     }
 }

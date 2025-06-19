@@ -27,6 +27,15 @@ public class Movie  {
         this.runtime = duration;
     }
 
+    public Movie(int id, String name, String director, int year, int
+            runtime) {
+        this.id = id;
+        this.name = name;
+        this.director = director;
+        this.year = year;
+        this.runtime = runtime;
+    }
+
     public String getName() {
         return name;
     }
@@ -59,7 +68,11 @@ public class Movie  {
         this.runtime = runtime;
     }
 
-    public void setId(int movieId) {
-        this.id = movieId;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
     }
 }

@@ -27,6 +27,14 @@ public class Album {
         this.tracks = tracks;
     }
 
+    public Album(int id, String name, String artist, int year, int tracks) {
+        this.id = id;
+        this.name = name;
+        this.artist = artist;
+        this.year = year;
+        this.tracks = tracks;
+    }
+
     public String getName() {
         return name;
     }
@@ -66,7 +74,7 @@ public class Album {
         return name + " - " + artist + " (" + year + ")";
     }
 
-    public void setId(int albumId) {
-        this.id = albumId;
+    public void setId(int id) {
+        this.id = id;
     }
 }

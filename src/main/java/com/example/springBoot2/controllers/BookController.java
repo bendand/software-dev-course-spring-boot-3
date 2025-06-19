@@ -10,33 +10,36 @@ import java.util.List;
 @RestController
 @RequestMapping("/books")
 public class BookController {
-    @Autowired
-    private BookRepository bookRepository;
+    private final BookRepository bookRepository;
 
-    @GetMapping("")
+    public BookController(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
+
+    @GetMapping
     public List<Book> getAllBooks() {
         return bookRepository.findAll();
     }
 
     @GetMapping("/{id}")
-    public Book getBook(@PathVariable(value="id") int bookId) {
+    public Book getBook(@PathVariable int bookId) {
         return bookRepository.findById(bookId).orElse(null);
     }
 
-    @PostMapping("")
+    @PostMapping
     public Book addBook(@RequestBody Book book) {
         return bookRepository.save(book);
     }
 
     @PutMapping("/{id}")
-    public Book updateBook(@PathVariable(value="id") int bookId, @RequestBody Book book) {
+    public Book updateBook(@PathVariable int bookId, @RequestBody Book book) {
         book.setId(bookId);
         return bookRepository.save(book);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteBook(@PathVariable(value="id") int id) {
-        bookRepository.findById(id).ifPresent(currBook -> bookRepository.deleteById(id));
+    public void deleteBook(@PathVariable int id) {
+        bookRepository.deleteById(id);
     }
 
 }
